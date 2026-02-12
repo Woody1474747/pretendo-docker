@@ -299,7 +299,9 @@ services:
       - ./environment/friends.local.env
 
   miiverse-api:
-    build: ./repos/juxtaposition/miiverse-api.Dockerfile
+    build:
+      context: ./repos/juxtaposition
+      dockerfile: miiverse-api.Dockerfile
     depends_on:
       - account
       - mongodb
@@ -322,7 +324,9 @@ services:
       - ./environment/miiverse-api.local.env
 
   juxtaposition-ui:
-    build: ./repos/juxtaposition/juxtaposition-ui.Dockerfile
+    build:
+      context: ./repos/juxtaposition
+      dockerfile: juxtaposition-ui.Dockerfile
     depends_on:
       - account
       - mongodb
